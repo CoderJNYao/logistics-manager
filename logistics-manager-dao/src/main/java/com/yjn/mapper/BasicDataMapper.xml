@@ -88,10 +88,11 @@
     from t_basicdata
     where base_id = #{baseId,jdbcType=INTEGER}
   </select>
-  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
-    delete from t_basicdata
-    where base_id = #{baseId,jdbcType=INTEGER}
-  </delete>
+   <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+   delete from t_basicdata
+   where base_id = #{baseId,jdbcType=INTEGER}
+        or parent_id = #{baseId,jdbcType=INTEGER}
+ </delete>
   <delete id="deleteByExample" parameterType="com.yjn.pojo.BasicDataExample">
     delete from t_basicdata
     <if test="_parameter != null">
@@ -193,4 +194,22 @@
       base_desc = #{baseDesc,jdbcType=VARCHAR}
     where base_id = #{baseId,jdbcType=INTEGER}
   </update>
+   <select id="getBasicDataByParentName" resultMap="BaseResultMap">
+    select *
+    from t_basicdata
+    where parent_id in (
+        select base_id from t_basicdata where base_name = #{param1}
+    )
+ </select>
+ <select id="getParentData" resultMap="BaseResultMap">
+ 	select *
+ 	from t_basicdata
+ 	where parent_id is null
+ </select>
+  <select id="searchData" resultMap="BaseResultMap" parameterType="java.lang.Integer">
+ 	select *
+ 	from t_basicdata
+ 	where parent_id = #{param1}
+ 	or base_id = #{param1}
+ </select>
 </mapper>

@@ -1,5 +1,6 @@
 package com.yjn.mapper;
 
+import com.yjn.pojo.Role;
 import com.yjn.pojo.User;
 import com.yjn.pojo.UserExample;
 import java.util.List;
@@ -27,4 +28,14 @@ public interface UserMapper {
     int updateByPrimaryKeySelective(User record);
 
     int updateByPrimaryKey(User record);
+    
+    void insertUserIdAndRoleId(Integer userId, Integer roleId);
+    
+    List<Integer> selectRoleIdByUserId(Integer id);
+    
+    void deleteRoleIdByUserId(Integer userId);
+    
+    List<User> queryUserByRoleName(String roleName);
+    
+
 }

@@ -4,15 +4,11 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>无标题文档</title>
+<title>首页</title>
 <link href="css/style.css" rel="stylesheet" type="text/css" />
 <script type="text/javascript" src="js/jquery.js"></script>
-
 </head>
-
-
 <body>
-
     <div class="place">
     <span>位置：</span>
     <ul class="placeul">
@@ -21,11 +17,12 @@
     </div>
     
     <div class="mainindex">
-    
-    
     <div class="welinfo">
     <span><img src="images/sun.png" alt="天气" /></span>
-    <b>Admin早上好，欢迎使用信息管理系统</b>(admin@uimaker.com)
+    <b><font color="red">
+    	<shiro:principal property="user.userName"></shiro:principal>
+    </font>
+    	早上好，欢迎使用物流管理系统</b>
     <a href="#">帐号设置</a>
     </div>
     
@@ -58,22 +55,12 @@
     </div>
     
     <ul class="infolist">
-    <li><span>您可以快速进行文章发布管理操作</span><a class="ibtn">发布或管理文章</a></li>
-    <li><span>您可以快速发布产品</span><a class="ibtn">发布或管理产品</a></li>
-    <li><span>您可以进行密码修改、账户设置等操作</span><a class="ibtn">账户管理</a></li>
+	    <li><span>您可以快速进行文章发布管理操作</span><a class="ibtn">发布或管理文章</a></li>
+	    <li><span>您可以快速发布产品</span><a class="ibtn">发布或管理产品</a></li>
+	    <li><span>您可以进行密码修改、账户设置等操作</span><a class="ibtn">账户管理</a></li>
     </ul>
     
-    <div class="xline"></div>
-    
-    <div class="uimakerinfo"><b>查看Uimaker网站使用指南，您可以了解到多种风格的B/S后台管理界面,软件界面设计，图标设计，手机界面等相关信息</b>(<a href="http://www.uimaker.com" target="_blank">www.uimaker.com</a>)</div>
-    
-    <ul class="umlist">
-    <li><a href="#">如何发布文章</a></li>
-    <li><a href="#">如何访问网站</a></li>
-    <li><a href="#">如何管理广告</a></li>
-    <li><a href="#">后台用户设置(权限)</a></li>
-    <li><a href="#">系统设置</a></li>
-    </ul>    
+    <div class="xline"></div>   
     </div>
 <div style="display:none"><script src='http://v7.cnzz.com/stat.php?id=155540&web_id=155540' language='JavaScript' charset='gb2312'></script></div>
 </body>

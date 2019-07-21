@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib uri="http://shiro.apache.org/tags" prefix="shiro" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -42,11 +43,15 @@ $(function(){
     </div>
         <ul class="menuson">
         <li><cite></cite><a href="index.html" target="rightFrame">首页模版</a><i></i></li>
-        <li class="active"><cite></cite><a href="right.html" target="rightFrame">数据列表</a><i></i></li>
-        <li><cite></cite><a href="imgtable.html" target="rightFrame">图片数据表</a><i></i></li>
-        <li><cite></cite><a href="form.html" target="rightFrame">添加编辑</a><i></i></li>
-        <li><cite></cite><a href="imglist.html" target="rightFrame">图片列表</a><i></i></li>
-        <li><cite></cite><a href="imglist1.html" target="rightFrame">自定义</a><i></i></li>
+        <li><cite></cite><a href="/user/queryPage" target="rightFrame">用户管理</a><i></i></li>
+        <li><cite></cite><a href="/role/query" target="rightFrame">角色管理</a><i></i></li>
+        <li><cite></cite><a href="/basic/query" target="rightFrame">基础数据管理</a><i></i></li>
+<shiro:hasAnyRoles name="业务员,操作员">
+    <li><cite></cite><a href="/customer/customerUpdate" target="rightFrame">新增客户</a><i></i></li>
+</shiro:hasAnyRoles>
+<shiro:hasAnyRoles name="业务员,操作员,管理员">
+    <li><cite></cite><a href="/customer/query" target="rightFrame">客户管理</a><i></i></li>
+</shiro:hasAnyRoles>
         <li><cite></cite><a href="tools.html" target="rightFrame">常用工具</a><i></i></li>
         <li><cite></cite><a href="filelist.html" target="rightFrame">信息管理</a><i></i></li>
         <li><cite></cite><a href="tab.html" target="rightFrame">Tab页</a><i></i></li>
